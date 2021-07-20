@@ -25,7 +25,7 @@ public class MenuUIHandler : MonoBehaviour
     public void ChangeName()
     {
         string name = input.text;
-        Debug.Log(name);
+        MemoryManager.Instance.name = name;
     }
 
     public void StartNew()

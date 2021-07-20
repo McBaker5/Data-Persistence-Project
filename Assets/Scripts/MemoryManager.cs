@@ -4,15 +4,21 @@ using UnityEngine;
 
 public class MemoryManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public static MemoryManager Instance;
 
-    // Update is called once per frame
-    void Update()
+    public new string name;
+
+    private void Awake()
     {
-        
+        if (Instance != null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
+
+        // LoadHiScore();
     }
 }
