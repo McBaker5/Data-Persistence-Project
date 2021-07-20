@@ -10,6 +10,7 @@ public class MainManager : MonoBehaviour
     public int LineCount = 6;
     public Rigidbody Ball;
 
+    public Text HiScoreText;
     public Text ScoreText;
     public GameObject GameOverText;
     
@@ -36,6 +37,7 @@ public class MainManager : MonoBehaviour
                 brick.onDestroyed.AddListener(AddPoint);
             }
         }
+        HiScoreText.text = $"Best Score : {MemoryManager.Instance.hiScoreName} : {MemoryManager.Instance.hiScore}";
         ScoreText.text = $"Score : {MemoryManager.Instance.name} : {m_Points}";
     }
 
@@ -58,6 +60,7 @@ public class MainManager : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Space))
             {
+                HiScoreText.text = $"Best Score : {MemoryManager.Instance.hiScoreName} : {MemoryManager.Instance.hiScore}";
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
             }
         }
@@ -73,5 +76,7 @@ public class MainManager : MonoBehaviour
     {
         m_GameOver = true;
         GameOverText.SetActive(true);
+        if (m_Points > MemoryManager.Instance.hiScore)
+            MemoryManager.Instance.SaveHiScore(m_Points);
     }
 }

@@ -10,10 +10,11 @@ using UnityEngine.UI;
 public class MenuUIHandler : MonoBehaviour
 {
     [SerializeField] InputField input;
+    [SerializeField] Text hiScoreText;
     // Start is called before the first frame update
     void Start()
     {
-        
+        hiScoreText.text = "HI SCORE\n" + MemoryManager.Instance.hiScoreName + " : " + MemoryManager.Instance.hiScore;
     }
 
     // Update is called once per frame

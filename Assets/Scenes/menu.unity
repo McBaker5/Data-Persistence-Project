@@ -591,6 +591,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: 
+  hiScoreName: 
+  hiScore: 0
 --- !u!1 &702151118
 GameObject:
   m_ObjectHideFlags: 0
@@ -1203,6 +1205,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   input: {fileID: 702151120}
+  hiScoreText: {fileID: 2107418394}
 --- !u!1 &2107418392
 GameObject:
   m_ObjectHideFlags: 0
